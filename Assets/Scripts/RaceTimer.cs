@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class RaceTimer : MonoBehaviour
 {
+    [SerializeField] private LeaderBoards leaderbord;
+    
     private float raceTime = 0;
     private bool raceRunning;
+
 
 
     private void Update()
@@ -44,7 +47,11 @@ public class RaceTimer : MonoBehaviour
     {
         
         raceRunning = false;
-        Debug.Log("Race ended time: "+ raceTime);
+        GameData.Instance.racesCompleted++;
+        leaderbord.AddResult(raceTime);
+        Debug.Log("Race ended! Time: "+ raceTime);
+        Debug.Log("Races completed: " + 
+            GameData.Instance.racesCompleted);
 
     }
 
