@@ -26,6 +26,11 @@ public class LeaderBoards : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public List<float> GetResults()
+    {
+        return new List<float>(results);
+    }
+
     // Update is called once per frame
     void Update()
     {
